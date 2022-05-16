@@ -1,36 +1,15 @@
 # frozen_string_literal: true
-
 require_relative '../board'
 
 
 describe Board do
-  context('When creating an object with this class')
-  before do
-    @board = Board.new
-    @cell = @board.return_cell_matrix[0,0]
-  end
-  describe '#return_cell_matrix' do
-    it 'should display a matrix object ' do
-        expect(@board.return_cell_matrix.class).to eql(Matrix)
-    end
-    it 'should not display string object' do
-        expect(@board.return_cell_matrix.class).to_not eql(String)
-    end
-  end
-  # describe '#populate' do
-  #   it 'should change certain position\'s cells to true ' do
-  #       expect(@alive_position.is_alive).to eql(true)
-  #   end
-  # end
-  
 
-  end
+let(:board) {Board.new(5,5)}
+it 'initialize a board with predefined rows and columns' do
+expect(board.cells_matrix.class).to eq(Array)
+end
 
- 
-# describe Cells do
-#     context('')
-# end
+it 'returns a cells position'
 
 
-
-#
+end
