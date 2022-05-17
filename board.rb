@@ -16,12 +16,33 @@ class Board
     @cells_matrix
   end
 
-  def populate(cell, x, y)
+  def populate(cell, rows, columns)
     cell.alive!
-    @cells_matrix[x, y] = cell
+    @cells_matrix[rows, columns] = cell
   end
 
-  def find_cell(row, column)
-    @cells_matrix[row, column]
+  def find_cell(cell)
+    @cells_matrix.find_index(cell)
+  end
+
+  def neighbours(cell)
+    x = cells_matrix.find_cell(cell)[0]
+    y = cells_matrix.find_cell(cell)[1]
+    neighbours = []
+    neighbours.push(@board.find_cell[x - 1, y - 1])
+    neighbours.push(@board.find_cell[x - 1, y])
+    neighbours.push(@board.find_cell[x - 1, y + 1])
+
+    neighbours.push(@board.find_cell[x, y - 1])
+    neighbours.push(@board.find_cell[x, y + 1])
+
+    neighbours.push(@board.find_cell[x + 1, y - 1])
+    neighbours.push(@board.find_cell[x + 1, y])
+    neighbours.push(@board.find_cell[x + 1, y + 1])
+
+    neighbours
   end
 end
+
+obj = Board.new(4, 8)
+puts obj.inspect

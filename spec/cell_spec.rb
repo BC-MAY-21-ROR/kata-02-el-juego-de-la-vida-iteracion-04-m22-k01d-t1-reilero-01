@@ -25,7 +25,5 @@ describe Cells do
     expect(cell.live).to be false
   end
 
-  it 'has neighbours'
-
   it 'returns the count of live neighbours'
 end
